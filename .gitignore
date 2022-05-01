@@ -1,2 +1,3 @@
 # Project exclude paths
 /venv/
+/Large_Dataset_ServerSide_Processing/.env
