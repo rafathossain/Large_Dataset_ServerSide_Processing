@@ -65,6 +65,6 @@ def ldspSeed(request):
         # Creating dataset object
         DataSet.objects.create(
             text='This is text %s' % str(i),
-            random=random.randint(10000000000, 99999999999)
+            random=random.randint(100000, 999999)
         )
     return HttpResponse("Done")
