@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# if any of the commands in your code fails for any reason, the entire script fails
+set -o errexit
+# fail exit if one of your pipe command fails
+set -o pipefail
+# exits if any of your variables is not set
+set -o nounset
+
+source ./deployment/db_utils.sh
+
+until mariadb_ready; do
+  echo >&2 'Waiting for MariaDB to become available...'
+  sleep 2
+done
+echo >&2 'MariaDB is available'
+
+exec "$@"
